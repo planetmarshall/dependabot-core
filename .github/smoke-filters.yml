@@ -7,6 +7,9 @@ common: &common
 bazel:
   - *common
   - 'bazel/**'
+conan:
+  - *common
+  - 'conan/**'
 deno:
   - *common
   - 'deno/**'

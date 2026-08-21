@@ -26,6 +26,7 @@ jobs:
           - { path: cargo, name: cargo, ecosystem: cargo }
           - { path: common, name: common, ecosystem: common }
           - { path: composer, name: composer, ecosystem: composer }
+          - { path: conan, name: conan, ecosystem: conan }
           - { path: conda, name: conda, ecosystem: conda }
           - { path: deno, name: deno, ecosystem: deno }
           - { path: devcontainers, name: devcontainers, ecosystem: devcontainers }

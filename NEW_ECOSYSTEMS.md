@@ -233,6 +233,9 @@ For files not covered by the automated task or requiring ecosystem-specific cust
 - **Updater Core**: Add ecosystem-specific dependencies to the core updater image if needed
   - [Dockerfile.updater-core](https://github.com/dependabot/dependabot-core/blob/main/Dockerfile.updater-core)
 
+#### Update the local Docker images
+
+
 #### Dependency Management
 - **Omnibus gem dependencies**: After running the infrastructure update task, update gem dependencies:
   ```bash

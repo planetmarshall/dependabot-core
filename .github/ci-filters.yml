@@ -31,6 +31,9 @@ common:
 composer:
   - *shared
   - 'composer/**'
+conan:
+  - *shared
+  - 'conan/**'
 conda:
   - *shared
   - 'conda/**'

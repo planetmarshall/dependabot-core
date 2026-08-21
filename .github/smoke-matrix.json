@@ -20,6 +20,11 @@
     "ecosystem": "composer"
   },
   {
+    "core": "conan",
+    "test": "conan",
+    "ecosystem": "conan"
+  },
+  {
     "core": "conda",
     "test": "conda",
     "ecosystem": "conda"

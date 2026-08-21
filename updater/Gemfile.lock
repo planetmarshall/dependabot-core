@@ -55,6 +55,12 @@ PATH
       dependabot-common (= 0.392.0)
 
 PATH
+  remote: ../conan
+  specs:
+    dependabot-conan (0.392.0)
+      dependabot-common (= 0.392.0)
+
+PATH
   remote: ../conda
   specs:
     dependabot-conda (0.392.0)
@@ -606,6 +612,7 @@ DEPENDENCIES
   dependabot-cargo!
   dependabot-common!
   dependabot-composer!
+  dependabot-conan!
   dependabot-conda!
   dependabot-deno!
   dependabot-devcontainers!
@@ -699,6 +706,7 @@ CHECKSUMS
   dependabot-cargo (0.392.0)
   dependabot-common (0.392.0)
   dependabot-composer (0.392.0)
+  dependabot-conan (0.392.0)
   dependabot-conda (0.392.0)
   dependabot-deno (0.392.0)
   dependabot-devcontainers (0.392.0)

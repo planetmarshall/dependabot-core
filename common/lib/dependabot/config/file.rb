@@ -65,6 +65,7 @@ module Dependabot
           "bundler" => "bundler",
           "cargo" => "cargo",
           "composer" => "composer",
+          "conan" => "conan",
           "deno" => "deno",
           "conda" => "conda",
           "devcontainer" => "devcontainers",

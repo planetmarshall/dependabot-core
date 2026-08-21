@@ -11,7 +11,7 @@
 /pkg
 /vendor
 /tmp
-**/.bundle
+#**/.bundle
 !*/.bundle/config
 **/coverage
 /Gemfile.lock
