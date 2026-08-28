@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Readme.md",
+    "path": "Readme.md",
+    "sha": "f3954314c1026028e77ea3a765aadefa67b45195",
+    "size": 9,
+    "url": "https://api.github.com/repos/planetmarshall/conan-dependabot-test/contents/Readme.md?ref=main",
+    "html_url": "https://github.com/planetmarshall/conan-dependabot-test/blob/main/Readme.md",
+    "git_url": "https://api.github.com/repos/planetmarshall/conan-dependabot-test/git/blobs/f3954314c1026028e77ea3a765aadefa67b45195",
+    "download_url": "https://raw.githubusercontent.com/planetmarshall/conan-dependabot-test/main/Readme.md?token=AADHBZO7TMHIJL6KBLCZQ73KSHWSFAA",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/planetmarshall/conan-dependabot-test/contents/Readme.md?ref=main",
+      "git": "https://api.github.com/repos/planetmarshall/conan-dependabot-test/git/blobs/f3954314c1026028e77ea3a765aadefa67b45195",
+      "html": "https://github.com/planetmarshall/conan-dependabot-test/blob/main/Readme.md"
+    }
+  }
+]

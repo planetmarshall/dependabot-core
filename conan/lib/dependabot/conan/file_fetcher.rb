@@ -11,14 +11,12 @@ module Dependabot
 
       sig { override.returns(String) }
       def self.required_files_message
-        "Repo must contain a TODO manifest file."
+        "Repo must contain a conan.lock file and one of either a conanfile.txt, or a conanfile.py file."
       end
 
       sig { override.params(filenames: T::Array[String]).returns(T::Boolean) }
       def self.required_files_in?(filenames)
-        # TODO: Implement logic to check if required files are present
-        # Example: filenames.any? { |name| name == "manifest.json" }
-        false
+        filenames.include? "conan.lock" and filenames.include? "conanfile.txt"
       end
 
       sig { override.returns(T::Array[DependencyFile]) }

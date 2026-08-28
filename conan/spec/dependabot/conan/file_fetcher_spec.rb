@@ -32,11 +32,60 @@ RSpec.describe Dependabot::Conan::FileFetcher do
     )
   end
 
-  before { allow(file_fetcher_instance).to receive(:commit).and_return("sha") }
+  before do
+    allow(file_fetcher_instance).to receive_messages(commit: "sha", allow_beta_ecosystems?: true)
+  end
 
-  # TODO: Add test cases
-  # Example:
-  # it "fetches manifest files" do
-  #   # Test implementation
-  # end
+  it_behaves_like "a dependency file fetcher"
+
+  context "with no conan dependency files" do
+    before do
+      stub_request(:get, url)
+      .to_return(
+        status: 200,
+        body: fixture("github", "contents_no_conan_repo.json")
+      )
+    end
+
+    it "raises the expected error" do
+      expect { file_fetcher_instance.files }
+        .to raise_error(Dependabot::DependencyFileNotFound)
+    end
+  end
+
+  context "with a conan.lock file and a conanfile.txt file" do
+    before do
+      stub_request(:get, url)
+        .to_return(
+          status: 200,
+          body: fixture("github", "contents_conanfile_txt_and_lockfile_repo.json")
+        )
+    end
+
+    it "fetches the conan.lock and conanfile.txt files" do
+      expect(file_fetcher_instance.files.count).to eq(2)
+      expect(file_fetcher_instance.files.map(&:name))
+        .to match_array(%w(conan.lock conanfile.txt))
+    end
+  end
+
+  describe ".required_files_in?" do
+    subject(:required_files_in?) { described_class.required_files_in?(filenames) }
+
+    context "when conan.lock and conanfile.txt is present" do
+      let(:filenames) { ["conan.lock", "conanfile.txt"] }
+
+      it { is_expected.to be(true)}
+
+    end
+  end
+
+  describe ".required_files_message" do
+    subject(:required_files_message) {described_class.required_files_message}
+
+    it "returns a helpful message" do
+      expect(required_files_message)
+        .to eq("Repo must contain a conan.lock file and one of either a conanfile.txt, or a conanfile.py file.")
+    end
+  end
 end
