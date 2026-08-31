@@ -1,0 +1,18 @@
+{
+  "name": "conanfile.txt",
+  "path": "conanfile.txt",
+  "sha": "86a08824969b46992a9406c4bcbc820f84cd17e0",
+  "size": 38,
+  "url": "https://api.github.com/repos/planetmarshall/conan-dependabot-test/contents/conanfile.txt?ref=main",
+  "html_url": "https://github.com/planetmarshall/conan-dependabot-test/blob/main/conanfile.txt",
+  "git_url": "https://api.github.com/repos/planetmarshall/conan-dependabot-test/git/blobs/86a08824969b46992a9406c4bcbc820f84cd17e0",
+  "download_url": "https://raw.githubusercontent.com/planetmarshall/conan-dependabot-test/main/conanfile.txt?token=AADHBZN7QNIZFVDRLZNNUCDKSVPCHAA",
+  "type": "file",
+  "content": "W3JlcXVpcmVzXQoKemxpYi8xLjIuMTEKc3BkbG9nLzEuMTUuMwo=\n",
+  "encoding": "base64",
+  "_links": {
+    "self": "https://api.github.com/repos/planetmarshall/conan-dependabot-test/contents/conanfile.txt?ref=main",
+    "git": "https://api.github.com/repos/planetmarshall/conan-dependabot-test/git/blobs/86a08824969b46992a9406c4bcbc820f84cd17e0",
+    "html": "https://github.com/planetmarshall/conan-dependabot-test/blob/main/conanfile.txt"
+  }
+}

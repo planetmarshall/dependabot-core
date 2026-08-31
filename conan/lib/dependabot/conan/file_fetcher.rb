@@ -22,14 +22,17 @@ module Dependabot
       sig { override.returns(T::Array[DependencyFile]) }
       def fetch_files
         # Implement beta feature flag check
-        unless allow_beta_ecosystems?
-          raise Dependabot::DependencyFileNotFound.new(
-            nil,
-            "Conan support is currently in beta. Set ALLOW_BETA_ECOSYSTEMS=true to enable it."
-          )
-        end
+        #unless allow_beta_ecosystems?
+        #  raise Dependabot::DependencyFileNotFound.new(
+        #    nil,
+        #    "Conan support is currently in beta. Set ALLOW_BETA_ECOSYSTEMS=true to enable it."
+        #  )
+        #end
 
-        fetched_files = []
+        fetched_files = [
+          conan_lock_file,
+          conanfile_txt
+        ].compact
 
         # TODO: Implement file fetching logic
         # Example:
@@ -46,6 +49,12 @@ module Dependabot
         # Example: { package_managers: { "conan" => "1.0.0" } }
         nil
       end
+
+      private
+
+      def conan_lock_file = fetch_file_if_present("conan.lock")
+
+      def conanfile_txt = fetch_file_if_present("conanfile.txt")
     end
   end
 end

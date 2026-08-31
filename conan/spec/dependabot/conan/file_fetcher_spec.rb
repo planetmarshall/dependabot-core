@@ -40,10 +40,12 @@ RSpec.describe Dependabot::Conan::FileFetcher do
 
   context "with no conan dependency files" do
     before do
-      stub_request(:get, url)
+      stub_request(:get, url + "?ref=sha")
+      .with(headers: { "Authorization" => "token token" })
       .to_return(
         status: 200,
-        body: fixture("github", "contents_no_conan_repo.json")
+        headers: { "content-type" => "application/json" },
+        body: fixture("github", "contents_no_conan_repo.json"),
       )
     end
 
@@ -53,13 +55,21 @@ RSpec.describe Dependabot::Conan::FileFetcher do
     end
   end
 
+  def conan_stub_request(fixture, filename)
+    stub_request(:get, url + "#{filename}?ref=sha")
+      .with(headers: { "Authorization" => "token token" })
+      .to_return(
+        status: 200,
+        headers: { "content-type" => "application/json" },
+        body: fixture
+      )
+  end
+
   context "with a conan.lock file and a conanfile.txt file" do
     before do
-      stub_request(:get, url)
-        .to_return(
-          status: 200,
-          body: fixture("github", "contents_conanfile_txt_and_lockfile_repo.json")
-        )
+      conan_stub_request(fixture("github", "contents_conanfile_txt_and_lockfile_repo.json"), "")
+      conan_stub_request(fixture("github", "contents_lockfile.json"), "conan.lock")
+      conan_stub_request(fixture("github", "contents_conanfile_txt.json"), "conanfile.txt")
     end
 
     it "fetches the conan.lock and conanfile.txt files" do
