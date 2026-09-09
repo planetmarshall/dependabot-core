@@ -12,6 +12,7 @@ module Dependabot
 
       sig { override.returns(T::Array[Dependabot::Dependency]) }
       def parse
+        SharedHelpers.run_helper_subprocess("conan-dependabot")
         # TODO: Implement parsing logic to extract dependencies from manifest files
         # Return an array of Dependency objects
         []

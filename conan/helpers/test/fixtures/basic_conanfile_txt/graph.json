@@ -1,0 +1,275 @@
+{
+    "graph": {
+        "nodes": {
+            "0": {
+                "ref": "conanfile",
+                "id": "0",
+                "recipe": "Consumer",
+                "package_id": null,
+                "prev": null,
+                "rrev": null,
+                "rrev_timestamp": null,
+                "prev_timestamp": null,
+                "remote": null,
+                "binary_remote": null,
+                "build_id": null,
+                "binary": null,
+                "invalid_build": false,
+                "info_invalid": null,
+                "name": null,
+                "user": null,
+                "channel": null,
+                "url": null,
+                "license": null,
+                "author": null,
+                "description": null,
+                "homepage": null,
+                "build_policy": null,
+                "upload_policy": null,
+                "revision_mode": "hash",
+                "provides": null,
+                "deprecated": null,
+                "win_bash": null,
+                "win_bash_run": null,
+                "default_options": null,
+                "options_description": null,
+                "version": null,
+                "topics": null,
+                "package_type": "unknown",
+                "languages": [],
+                "settings": {
+                    "os": "Macos",
+                    "arch": "armv8",
+                    "compiler": "apple-clang",
+                    "compiler.cppstd": "gnu20",
+                    "compiler.libcxx": "libc++",
+                    "compiler.version": "15",
+                    "build_type": "Release"
+                },
+                "options": {},
+                "options_definitions": {},
+                "generators": [],
+                "python_requires": null,
+                "system_requires": {},
+                "recipe_folder": null,
+                "source_folder": null,
+                "build_folder": null,
+                "generators_folder": null,
+                "package_folder": null,
+                "immutable_package_folder": null,
+                "cpp_info": {
+                    "root": {
+                        "includedirs": [
+                            "include"
+                        ],
+                        "srcdirs": null,
+                        "libdirs": [
+                            "lib"
+                        ],
+                        "resdirs": null,
+                        "bindirs": [
+                            "bin"
+                        ],
+                        "builddirs": null,
+                        "frameworkdirs": null,
+                        "system_libs": null,
+                        "frameworks": null,
+                        "libs": null,
+                        "defines": null,
+                        "cflags": null,
+                        "cxxflags": null,
+                        "sharedlinkflags": null,
+                        "exelinkflags": null,
+                        "objects": null,
+                        "sources": null,
+                        "sysroot": null,
+                        "requires": null,
+                        "properties": null,
+                        "exe": null,
+                        "type": null,
+                        "location": null,
+                        "link_location": null,
+                        "languages": null
+                    }
+                },
+                "conf_info": {},
+                "label": "conanfile.txt",
+                "vendor": false,
+                "dependencies": {
+                    "1": {
+                        "ref": "zlib/1.3.1",
+                        "require": "zlib/1.3.1",
+                        "run": false,
+                        "libs": true,
+                        "skip": false,
+                        "test": false,
+                        "force": false,
+                        "direct": true,
+                        "build": false,
+                        "transitive_headers": null,
+                        "transitive_libs": null,
+                        "headers": true,
+                        "package_id_mode": null,
+                        "visible": true
+                    }
+                },
+                "context": "host",
+                "test": false
+            },
+            "1": {
+                "ref": "zlib/1.3.1#6d60a7a17fd252f98729cf06dcc8990c",
+                "id": "1",
+                "recipe": "Cache",
+                "package_id": "2ee39e692ca4177b4b689b15bc1f2cfdf8f83706",
+                "prev": "3f66f6203e1f537b717ffcbae2e64968",
+                "rrev": "6d60a7a17fd252f98729cf06dcc8990c",
+                "rrev_timestamp": 1774951407.394,
+                "prev_timestamp": 1774948850.974,
+                "remote": null,
+                "binary_remote": "entos-iui-prod",
+                "build_id": null,
+                "binary": "Download",
+                "invalid_build": false,
+                "info_invalid": null,
+                "name": "zlib",
+                "user": null,
+                "channel": null,
+                "url": "https://github.com/conan-io/conan-center-index",
+                "license": "Zlib",
+                "author": null,
+                "description": "A Massively Spiffy Yet Delicately Unobtrusive Compression Library (Also Free, Not to Mention Unencumbered by Patents)",
+                "homepage": "https://zlib.net",
+                "build_policy": null,
+                "upload_policy": null,
+                "revision_mode": "hash",
+                "provides": null,
+                "deprecated": null,
+                "win_bash": null,
+                "win_bash_run": null,
+                "default_options": {
+                    "shared": false,
+                    "fPIC": true
+                },
+                "options_description": null,
+                "version": "1.3.1",
+                "topics": [
+                    "zlib",
+                    "compression"
+                ],
+                "package_type": "static-library",
+                "languages": [],
+                "settings": {
+                    "os": "Macos",
+                    "arch": "armv8",
+                    "compiler": "apple-clang",
+                    "compiler.version": "15",
+                    "build_type": "Release"
+                },
+                "options": {
+                    "fPIC": "True",
+                    "shared": "False"
+                },
+                "options_definitions": {
+                    "shared": [
+                        "True",
+                        "False"
+                    ],
+                    "fPIC": [
+                        "True",
+                        "False"
+                    ]
+                },
+                "generators": [],
+                "python_requires": null,
+                "system_requires": {},
+                "recipe_folder": "/Users/andrew/.conan2/p/zlib3c6f85f710d53/e",
+                "source_folder": null,
+                "build_folder": null,
+                "generators_folder": null,
+                "package_folder": null,
+                "immutable_package_folder": null,
+                "cpp_info": {
+                    "root": {
+                        "includedirs": [
+                            "include"
+                        ],
+                        "srcdirs": null,
+                        "libdirs": [
+                            "lib"
+                        ],
+                        "resdirs": null,
+                        "bindirs": [
+                            "bin"
+                        ],
+                        "builddirs": null,
+                        "frameworkdirs": null,
+                        "system_libs": null,
+                        "frameworks": null,
+                        "libs": null,
+                        "defines": null,
+                        "cflags": null,
+                        "cxxflags": null,
+                        "sharedlinkflags": null,
+                        "exelinkflags": null,
+                        "objects": null,
+                        "sources": null,
+                        "sysroot": null,
+                        "requires": null,
+                        "properties": null,
+                        "exe": null,
+                        "type": null,
+                        "location": null,
+                        "link_location": null,
+                        "languages": null
+                    }
+                },
+                "conf_info": {},
+                "label": "zlib/1.3.1",
+                "info": {
+                    "settings": {
+                        "os": "Macos",
+                        "arch": "armv8",
+                        "compiler": "apple-clang",
+                        "compiler.version": "15",
+                        "build_type": "Release"
+                    },
+                    "options": {
+                        "fPIC": "True",
+                        "shared": "False"
+                    }
+                },
+                "vendor": false,
+                "conandata": {
+                    "sources": {
+                        "1.3.1": {
+                            "url": [
+                                "https://zlib.net/fossils/zlib-1.3.1.tar.gz",
+                                "https://github.com/madler/zlib/releases/download/v1.3.1/zlib-1.3.1.tar.gz"
+                            ],
+                            "sha256": "9a93b2b7dfdac77ceba5a558a580e74667dd6fede4585b91eefb60f03b72df23"
+                        }
+                    },
+                    "patches": {
+                        "1.3.1": [
+                            {
+                                "patch_file": "patches/1.3.1/0001-fix-cmake.patch",
+                                "patch_description": "separate static/shared builds, disable debug suffix",
+                                "patch_type": "conan"
+                            }
+                        ]
+                    }
+                },
+                "dependencies": {},
+                "context": "host",
+                "test": false
+            }
+        },
+        "root": {
+            "0": "None"
+        },
+        "overrides": {},
+        "resolved_ranges": {},
+        "replaced_requires": {},
+        "error": null
+    }
+}
