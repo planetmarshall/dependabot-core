@@ -166,6 +166,11 @@ docker run --rm -ti \
   -v "$(pwd)/composer/lib:$CODE_DIR/composer/lib" \
   -v "$(pwd)/composer/script:$CODE_DIR/composer/script" \
   -v "$(pwd)/composer/spec:$CODE_DIR/composer/spec" \
+  -v "$(pwd)/conan/.rubocop.yml:$CODE_DIR/conan/.rubocop.yml" \
+  -v "$(pwd)/conan/dependabot-conan.gemspec:$CODE_DIR/conan/dependabot-conan.gemspec" \
+  -v "$(pwd)/conan/lib:$CODE_DIR/conan/lib" \
+  -v "$(pwd)/conan/script:$CODE_DIR/conan/script" \
+  -v "$(pwd)/conan/spec:$CODE_DIR/conan/spec" \
   -v "$(pwd)/conda/.rubocop.yml:$CODE_DIR/conda/.rubocop.yml" \
   -v "$(pwd)/conda/dependabot-conda.gemspec:$CODE_DIR/conda/dependabot-conda.gemspec" \
   -v "$(pwd)/conda/lib:$CODE_DIR/conda/lib" \
@@ -262,7 +267,6 @@ docker run --rm -ti \
   -v "$(pwd)/nuget/script:$CODE_DIR/nuget/script" \
   -v "$(pwd)/nuget/spec:$CODE_DIR/nuget/spec" \
   -v "$(pwd)/omnibus/.rubocop.yml:$CODE_DIR/omnibus/.rubocop.yml" \
-  -v "$(pwd)/omnibus/Gemfile:$CODE_DIR/omnibus/Gemfile" \
   -v "$(pwd)/omnibus/dependabot-omnibus.gemspec:$CODE_DIR/omnibus/dependabot-omnibus.gemspec" \
   -v "$(pwd)/omnibus/lib:$CODE_DIR/omnibus/lib" \
   -v "$(pwd)/opentofu/.rubocop.yml:$CODE_DIR/opentofu/.rubocop.yml" \

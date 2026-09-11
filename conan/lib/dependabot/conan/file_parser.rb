@@ -4,6 +4,7 @@
 require "dependabot/dependency"
 require "dependabot/file_parsers"
 require "dependabot/file_parsers/base"
+require "dependabot/conan/conan_cli"
 
 module Dependabot
   module Conan
@@ -14,15 +15,29 @@ module Dependabot
         params(
           dependency_files: T::Array[Dependabot::DependencyFile],
           source: T.nilable(Dependabot::Source),
+          repo_contents_path: T.nilable(String),
+          credentials: T::Array[Dependabot::Credential],
+          reject_external_code: T::Boolean,
+          options: T::Hash[Symbol, T.untyped],
           conan_cli: Dependabot::Conan::ConanCli
         ).void
       end
       def initialize(
         dependency_files:,
         source: nil,
+        repo_contents_path: nil,
+        credentials: [],
+        reject_external_code: false,
+        options: {},
         conan_cli: Dependabot::Conan::ConanCli.new
       )
-        super(dependency_files: dependency_files, source: source)
+        super(
+          dependency_files: dependency_files,
+          source: source,
+          repo_contents_path: repo_contents_path,
+          credentials: credentials,
+          reject_external_code: reject_external_code,
+          options: options)
         @conan_cli = conan_cli
       end
 

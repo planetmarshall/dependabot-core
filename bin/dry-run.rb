@@ -967,7 +967,7 @@ begin
 
   # rubocop:enable Style/GlobalVars
 rescue StandardError => e
-  puts "An error occurred: #{e.class}, #{e.message}"
+  puts "An error occurred: #{e.class}, #{e.message} #{e.backtrace}"
   exit 1
 end
 
