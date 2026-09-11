@@ -65,25 +65,24 @@ RSpec.describe Dependabot::Conan::FileFetcher do
       )
   end
 
-  context "with a conan.lock file and a conanfile.txt file" do
+  context "with a conanfile.txt file" do
     before do
-      conan_stub_request(fixture("github", "contents_conanfile_txt_and_lockfile_repo.json"), "")
-      conan_stub_request(fixture("github", "contents_lockfile.json"), "conan.lock")
+      conan_stub_request(fixture("github", "contents_conanfile_txt_repo.json"), "")
       conan_stub_request(fixture("github", "contents_conanfile_txt.json"), "conanfile.txt")
     end
 
-    it "fetches the conan.lock and conanfile.txt files" do
-      expect(file_fetcher_instance.files.count).to eq(2)
+    it "fetches the conanfile.txt files" do
+      expect(file_fetcher_instance.files.count).to eq(1)
       expect(file_fetcher_instance.files.map(&:name))
-        .to match_array(%w(conan.lock conanfile.txt))
+        .to match_array(%w(conanfile.txt))
     end
   end
 
   describe ".required_files_in?" do
     subject(:required_files_in?) { described_class.required_files_in?(filenames) }
 
-    context "when conan.lock and conanfile.txt is present" do
-      let(:filenames) { ["conan.lock", "conanfile.txt"] }
+    context "when conanfile.txt is present" do
+      let(:filenames) { ["conanfile.txt"] }
 
       it { is_expected.to be(true)}
 
@@ -95,7 +94,7 @@ RSpec.describe Dependabot::Conan::FileFetcher do
 
     it "returns a helpful message" do
       expect(required_files_message)
-        .to eq("Repo must contain a conan.lock file and one of either a conanfile.txt, or a conanfile.py file.")
+        .to eq("Repo must contain either a conanfile.txt, or a conanfile.py file.")
     end
   end
 end

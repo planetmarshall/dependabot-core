@@ -10,22 +10,65 @@ module Dependabot
     class FileParser < Dependabot::FileParsers::Base
       extend T::Sig
 
+      sig do
+        params(
+          dependency_files: T::Array[Dependabot::DependencyFile],
+          source: T.nilable(Dependabot::Source),
+          conan_cli: Dependabot::Conan::ConanCli
+        ).void
+      end
+      def initialize(
+        dependency_files:,
+        source: nil,
+        conan_cli: Dependabot::Conan::ConanCli.new
+      )
+        super(dependency_files: dependency_files, source: source)
+        @conan_cli = conan_cli
+      end
+
       sig { override.returns(T::Array[Dependabot::Dependency]) }
       def parse
-        SharedHelpers.run_helper_subprocess("conan-dependabot")
-        # TODO: Implement parsing logic to extract dependencies from manifest files
-        # Return an array of Dependency objects
-        []
+        # We don't really parse a manifest file. We call
+        # [conan graph info](https://docs.conan.io/2/reference/commands/graph/info.html)
+        # to generate the dependency graph,
+        # then extract the dependencies from it.
+        graph = @conan_cli.graph_info(dependency_files.first)
+        nodes = graph["graph"]["nodes"]
+        root = nodes["0"]
+
+        dependencies = root["dependencies"]
+        dependencies.map do |dep_id, dep|
+          ref = nodes[dep_id]
+          requirements = []
+          if dep["direct"]
+            requirements << {
+              requirement: ref["version"],
+              groups: ["direct", ref["context"]],
+              source: {
+                url: ref["homepage"]
+              },
+              file: root["label"]
+            }
+          end
+          Dependabot::Dependency.new(
+            name: ref["name"],
+            version: ref["version"],
+            package_manager: "conan",
+            requirements: requirements
+          )
+        end
       end
 
       private
 
       sig { override.void }
       def check_required_files
-        # TODO: Verify that all required files are present
-        # Example:
-        # return if get_original_file("manifest.json")
-        # raise "No manifest.json file found!"
+        raise "No conanfile found!" unless conanfile
+      end
+
+      sig { returns(T.nilable(Dependabot::DependencyFile)) }
+      def conanfile
+        @conanfile ||= T.let(get_original_file("conanfile.txt") || get_original_file("conanfile.py"), T.nilable(Dependabot::DependencyFile))
       end
     end
   end

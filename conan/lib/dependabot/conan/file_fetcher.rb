@@ -11,12 +11,12 @@ module Dependabot
 
       sig { override.returns(String) }
       def self.required_files_message
-        "Repo must contain a conan.lock file and one of either a conanfile.txt, or a conanfile.py file."
+        "Repo must contain either a conanfile.txt, or a conanfile.py file."
       end
 
       sig { override.params(filenames: T::Array[String]).returns(T::Boolean) }
       def self.required_files_in?(filenames)
-        filenames.include? "conan.lock" and filenames.include? "conanfile.txt"
+        filenames.include? "conanfile.txt"
       end
 
       sig { override.returns(T::Array[DependencyFile]) }
@@ -30,13 +30,8 @@ module Dependabot
         #end
 
         fetched_files = [
-          conan_lock_file,
-          conanfile_txt
+          conanfile
         ].compact
-
-        # TODO: Implement file fetching logic
-        # Example:
-        # fetched_files << fetch_file_from_host("manifest.json")
 
         return fetched_files if fetched_files.any?
 
@@ -52,9 +47,7 @@ module Dependabot
 
       private
 
-      def conan_lock_file = fetch_file_if_present("conan.lock")
-
-      def conanfile_txt = fetch_file_if_present("conanfile.txt")
+      def conanfile = fetch_file_if_present("conanfile.txt")
     end
   end
 end
